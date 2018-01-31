@@ -1,6 +1,6 @@
-# MemFS
+# memfs
 
-MemFS is a user-space file system whose contents lives in memory during program lifetime.
+memfs is a user-space file system whose contents lives in memory during program lifetime.
 
 
 
