@@ -39,6 +39,11 @@ check: ## Lint the source code
 		--enable gofmt \
 		./...
 
+.PHONY: checkscripts
+checkscripts: ## Lint shell scripts
+	@echo "==> Linting scripts..."
+	@shellcheck ./scripts/*.sh
+
 .PHONY: test
 test: LOCAL_PACKAGES = $(shell go list ./... | grep -v '/vendor/')
 test: ## Run the test suite and/or any other tests
@@ -47,6 +52,18 @@ test: ## Run the test suite and/or any other tests
 		-cover \
 		-timeout=900s \
 		$(LOCAL_PACKAGES)
+
+.PHONY: coverage
+coverage: ## Create coverage report
+	@echo "==> Running all coverage..."
+	@(env bash scripts/go-coverage.sh)
+
+.PHONY: buildchecks
+buildchecks: GOPATH=$(shell go env GOPATH)
+buildchecks: ## Pre-build checks
+	@echo "==> Running pre-build checks..."
+	@echo "Checking project is in GOPATH"
+	@(env bash scripts/checkgopath.sh)
 
 .PHONY: clean
 clean: GOPATH=$(shell go env GOPATH)
