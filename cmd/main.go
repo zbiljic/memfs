@@ -11,8 +11,8 @@ import (
 
 	"github.com/cheggaaa/pb"
 	"github.com/spf13/cobra"
+	"github.com/zbiljic/pkg/logger"
 
-	"github.com/zbiljic/memfs/logger"
 	"github.com/zbiljic/memfs/pkg/sysinfo"
 )
 

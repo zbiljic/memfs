@@ -20,9 +20,9 @@ import (
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"github.com/zbiljic/pkg/logger"
 
 	"github.com/zbiljic/memfs/filesystem"
-	"github.com/zbiljic/memfs/logger"
 	"github.com/zbiljic/memfs/pkg/console"
 	mountpkg "github.com/zbiljic/memfs/pkg/mount"
 	"github.com/zbiljic/memfs/pkg/user"
